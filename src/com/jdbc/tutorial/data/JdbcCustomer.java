@@ -89,14 +89,13 @@ public class JdbcCustomer {
     }
 
     public List<Customer> getListCustomer() {
-        Connection connection = null;
         PreparedStatement statement = null;
         ResultSet re = null;
 
-        Customer customer = null;
+
         List<Customer> list = new ArrayList<>();
-        try {
-            connection = JavaConnection.getConnection();
+        try (Connection connection = JavaConnection.getConnection()) {
+            Customer customer = null;
             statement = connection.prepareStatement(SQL_SELECT);
             re = statement.executeQuery();
 
@@ -117,7 +116,6 @@ public class JdbcCustomer {
         } finally {
             JavaConnection.close(re);
             JavaConnection.close(statement);
-            JavaConnection.close(connection);
         }
 
 

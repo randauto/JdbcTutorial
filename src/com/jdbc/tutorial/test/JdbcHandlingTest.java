@@ -10,7 +10,7 @@ public class JdbcHandlingTest {
         JdbcCustomer jdbcCustomer = new JdbcCustomer();
         getList(jdbcCustomer);
 
-        jdbcCustomer.update(103, "Le Quoc Tuan");
+//        jdbcCustomer.update(103, "Le Quoc Tuan");
 
     }
 
